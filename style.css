@@ -146,3 +146,5 @@ input.answer:focus { outline: none; border-color: var(--gold); }
 
 .foot { text-align: center; color: var(--muted); font-size: .8rem; margin-top: 22px; }
 .preview { background: #fff3cd; border: 1px solid var(--gold); border-radius: 10px; padding: 6px 10px; font-size: .85rem; text-align: center; margin-bottom: 8px; }
+
+.restnote { margin-top: 12px; background: #fff6df; border: 1px solid var(--gold-l); border-left: 5px solid var(--gold); border-radius: 14px; padding: 10px 12px; font-size: .95rem; line-height: 1.4; box-shadow: var(--shadow); }

@@ -3,6 +3,7 @@
   var YEAR = 2026, MONTH = 11; // Dezember
   var KIDS = { emma: { name: 'Emma', icon: '🎮' }, samu: { name: 'Samu', icon: '⚽' } };
   var app = document.getElementById('app');
+  var REST_NOTE = '<div class="restnote">🧱 <b>Teil fehlt?</b> Es gibt eine Tüte mit der Aufschrift <b>„Rest“</b>. Darin sind alle Steine, die beim Aufteilen übrig geblieben sind. Wenn dir ein Teil fehlt, darfst du in der Restetüte nachschauen.</div>';
 
   // ---------- Speicher (darf fehlschlagen) ----------
   function sget(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
@@ -143,6 +144,7 @@
       } }, inner));
     });
     app.appendChild(g);
+    if (kid === 'emma') app.appendChild(el('div', null, REST_NOTE));
     if (preview) app.appendChild(el('p', { class: 'foot' }, '<button class="link" id="reset">Gelöste Türchen auf diesem Gerät zurücksetzen</button>'));
     var r = document.getElementById('reset'); if (r) r.onclick = function () { for (var d = 1; d <= 24; d++) sdel(solvedKey(kid, d)); calendar(kid); };
   }
@@ -166,6 +168,7 @@
     card.appendChild(el('div', { class: 'day-label' }, day + '. Dezember'));
     card.appendChild(el('h2', null, t.title));
     app.appendChild(card);
+    if (kid === 'emma') app.appendChild(el('div', null, REST_NOTE));
 
     var solved = getSolved(kid, day);
     if (solved) { showReveal(card, kid, day, solved, false); return; }
